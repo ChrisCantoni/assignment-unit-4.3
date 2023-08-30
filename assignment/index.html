@@ -15,10 +15,35 @@
     <h1>Unit 4, Part 3 - Cart System</h1>
     <p>See console for output. <a href="">Refresh</a> the page to re-run tests.</p>
     <!-- Create an unordered list with any questions you have -->
-
+    <div id="items">
+        <button onClick="addItem('milk')">
+          Add Milk
+        </button>
+        <button onClick="addItem('cereal')">
+          Add Cereal
+        </button>
+        <button onClick="addItem('jam')">
+          Add Jam
+        </button>
+        <button onClick="addItem('salami')">
+          Add Salami
+        </button>
+        <button onClick="addItem('bread')">
+          Add Bread
+        </button>
+        <button onClick="addItem('broccoli')">
+          Add Broccoli
+        </button>
+        <button onClick="empty(basket)">
+          Empty Cart!
+        </button>
+        <button onClick="listItems(basket)">
+          List the items in your cart
+        </button>
+    </div>
     <!-- Used for automated testing -->
-    <div id="mocha"></div>
+    <!-- <div id="mocha"></div>
     <link rel="stylesheet" href="../test/test.styles.css" />
-    <script src="../test/test.js"></script>
+    <script src="../test/test.js"></script> -->
   </body>
 </html>

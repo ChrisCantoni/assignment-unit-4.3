@@ -3,8 +3,9 @@ console.log('***** Cart Functions *****');
 // We want to see how you are testing your code!!!
 let basket = [];
 
+// Adding items to the basket
 function addItem(item) {
-    if (isFull()) {
+    if (true) {
     basket.push(item);
     return true;
     } else {
@@ -12,7 +13,7 @@ function addItem(item) {
         return false;
     }
 };
-
+// Filling the basket with groceries, one at a time
 console.log(`Adding milk to the basket, ${addItem('milk')}`);
 console.log(`Adding cereal to the basket, ${addItem('cereal')}`);
 console.log(`Basket is now ${basket}`);
@@ -26,24 +27,26 @@ console.table(basket);
 console.log(`Adding broccoli to the basket, ${addItem('broccoli')}`);
 console.table(basket);
 
+// List items in cart
 function listItems(basketArray) {
-    for (let item of basketArray) {
-        console.log(item);
+    if (basketArray.length > 0) {
+        for (let item of basketArray) {
+            console.log(item);
+    }} 
+    else {
+        console.log('Your basket has nothing in it!');
     }
 }
 
-// function listItems(basketArray){
-//     for (let i = 0; i < basketArray.length; i ++){
-//         console.log(basketArray[i]);
-//     } 
-// }
 listItems(basket);
 
+// empties the basket
 function empty(basketArray) {
-    basketArray = [];
+    basketArray.length = 0;
     console.log('The basket is now empty');
 }
 
+// Stretch goals
 const maxItems = 5;
 
 function isFull() {
@@ -54,8 +57,21 @@ function isFull() {
     }
 }
 
+function removeItem(item) {
+    for (let i = 0; i < basket.length; i++) {
+        if (basket[i] == item) {
+            basket.splice(i, 1);
+            return true;
+        } else if (basket[item] == -1) {
+            return null;
+        }
+    }
+}
+console.log(`Jam was removed from the basket: ${removeItem('jam')}`);
+console.log(basket);
 
-
+empty(basket);
+console.log(basket);
 
 // DO NOT MODIFY
 // Used for automated testing
