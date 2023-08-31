@@ -3,9 +3,10 @@ console.log('***** Cart Functions *****');
 // We want to see how you are testing your code!!!
 let basket = [];
 
+let basketList = document.querySelector('#basket');
 // Adding items to the basket
 function addItem(item) {
-    if (true) {
+    if (isFull()) {
     basket.push(item);
     return true;
     } else {
@@ -17,20 +18,24 @@ function addItem(item) {
 console.log(`Adding milk to the basket, ${addItem('milk')}`);
 console.log(`Adding cereal to the basket, ${addItem('cereal')}`);
 console.log(`Basket is now ${basket}`);
+
 console.log(`Adding jam to the basket, ${addItem('jam')}`);
-console.table(basket);
+
 console.log(`Adding salami to the basket, ${addItem('salami')}`);
-console.table(basket);
+
 console.log(`Adding bread to the basket, ${addItem('bread')}`);
-console.table(basket);
+
 // adding a 6th item to test that isFull() works as intended
 console.log(`Adding broccoli to the basket, ${addItem('broccoli')}`);
-console.table(basket);
+    console.table(basket);
 
 // List items in cart
 function listItems(basketArray) {
     if (basketArray.length > 0) {
+        basketList.innerHTML = '<h3>Here are the items in your basket</h3>';
+        console.log('Here are the items in your basket!');
         for (let item of basketArray) {
+            basketList.innerHTML += '<li>' + item + '</li>' 
             console.log(item);
     }} 
     else {
@@ -42,8 +47,13 @@ listItems(basket);
 
 // empties the basket
 function empty(basketArray) {
-    basketArray.length = 0;
-    console.log('The basket is now empty');
+    if (basketArray.length > 0) {
+        console.log('The basket is now empty');
+        basketArray.length = 0;
+        basketList.innerHTML = '<h3>There is nothing in your basket</h3>';
+    } else {
+        console.log('Your basket is already empty!');
+    }
 }
 
 // Stretch goals
@@ -57,21 +67,21 @@ function isFull() {
     }
 }
 
-function removeItem(item) {
-    for (let i = 0; i < basket.length; i++) {
-        if (basket[i] == item) {
-            basket.splice(i, 1);
-            return true;
-        } else if (basket[item] == -1) {
-            return null;
-        }
-    }
+function removeItem(item, basketArray) {
+    if (basketArray.indexOf(item) == -1) {
+        console.log('item not found');
+        return null;
+    } else {
+        let remove = basketArray.indexOf(item);
+        basketArray.splice(remove, 1)
+        return true;
+    }  
 }
-console.log(`Jam was removed from the basket: ${removeItem('jam')}`);
+console.log(`Jam was removed from the basket: ${removeItem('jam', basket)}`);
 console.log(basket);
 
-empty(basket);
-console.log(basket);
+
+
 
 // DO NOT MODIFY
 // Used for automated testing
