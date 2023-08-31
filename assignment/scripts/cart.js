@@ -5,28 +5,30 @@ let basket = [];
 
 let basketList = document.querySelector('#basket');
 // Adding items to the basket
-function addItem(item) {
+function addItem(item, basketArray) {
     if (isFull()) {
-    basket.push(item);
+    basketArray.push(item);
+    listItems(basketArray);
     return true;
     } else {
+        basketList.innerHTML += `<h3>Your basket is full! ${item} was not added to the basket.<h3>`
         console.log(`Your basket is full, ${item} was not added to the basket`);
         return false;
     }
 };
 // Filling the basket with groceries, one at a time
-console.log(`Adding milk to the basket, ${addItem('milk')}`);
-console.log(`Adding cereal to the basket, ${addItem('cereal')}`);
+console.log(`Adding milk to the basket, ${addItem('milk', basket)}`);
+console.log(`Adding cereal to the basket, ${addItem('cereal', basket)}`);
 console.log(`Basket is now ${basket}`);
 
-console.log(`Adding jam to the basket, ${addItem('jam')}`);
+console.log(`Adding jam to the basket, ${addItem('jam', basket)}`);
 
-console.log(`Adding salami to the basket, ${addItem('salami')}`);
+console.log(`Adding salami to the basket, ${addItem('salami', basket)}`);
 
-console.log(`Adding bread to the basket, ${addItem('bread')}`);
+console.log(`Adding bread to the basket, ${addItem('bread', basket)}`);
 
 // adding a 6th item to test that isFull() works as intended
-console.log(`Adding broccoli to the basket, ${addItem('broccoli')}`);
+console.log(`Adding broccoli to the basket, ${addItem('broccoli', basket)}`);
     console.table(basket);
 
 // List items in cart
@@ -74,6 +76,7 @@ function removeItem(item, basketArray) {
     } else {
         let remove = basketArray.indexOf(item);
         basketArray.splice(remove, 1)
+        listItems(basketArray);
         return true;
     }  
 }
