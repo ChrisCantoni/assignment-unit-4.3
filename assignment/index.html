@@ -10,44 +10,67 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/4.3.7/chai.min.js" integrity="sha512-Pwgr3yHn4Gvztp1GKl0ihhAWLZfqgp4/SbMt4HKW7AymuTQODMCNPE7v1uGapTeOoQQ5Hoz367b4seKpx6j7Zg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- JavaScript file for the assignment -->
     <script src="scripts/cart.js" defer></script>
+    <style>
+      button {
+        margin: 5px;
+        padding: 5px;
+      }
+    </style>
   </head>
   <body>
     <h1>Unit 4, Part 3 - Cart System</h1>
     <p>See console for output. <a href="">Refresh</a> the page to re-run tests.</p>
     <!-- Create an unordered list with any questions you have -->
     <div>
+      <button onClick="empty(basket)">
+        Empty Basket
+      </button>
       <ul id="basket">
-        
+        <!-- Add remove buttons for all items. I think we're good if we do that. -->
       </ul>
     </div>
     <div id="items">
         <button onClick="addItem('milk', basket)">
           Add Milk
         </button>
+        <button onClick="removeItem('milk', basket)">
+          Remove Milk
+        </button> <br>
         <button onClick="addItem('cereal', basket)">
           Add Cereal
         </button>
+        <button onClick="removeItem('cereal', basket)">
+          Remove Cereal
+        </button> <br>
         <button onClick="addItem('jam', basket)">
           Add Jam
         </button>
+        <button onClick="removeItem('jam', basket)">
+          Remove Jam
+        </button> <br>
         <button onClick="addItem('salami', basket)">
           Add Salami
         </button>
+        <button onClick="removeItem('salami', basket)">
+          Remove Salami
+        </button> <br>
         <button onClick="addItem('bread', basket)">
           Add Bread
         </button>
+        <button onClick="removeItem('bread', basket)">
+          Remove Bread
+        </button> <br>
         <button onClick="addItem('broccoli', basket)">
           Add Broccoli
         </button>
-        <button onClick="empty(basket)">
-          Empty Cart!
-        </button>
+        <button onClick="removeItem('broccoli', basket)">
+          Remove Broccoli
+        </button> <br>
+        
         <button onClick="listItems(basket)">
-          List the items in your cart
+          List your items in the console
         </button>
-        <button onClick="removeItem('jam', basket)">
-          Remove Jam
-        </button>
+        
     </div>
     <!-- Used for automated testing -->
     <!-- <div id="mocha"></div>

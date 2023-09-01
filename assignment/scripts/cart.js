@@ -32,6 +32,7 @@ console.log(`Adding broccoli to the basket, ${addItem('broccoli', basket)}`);
     console.table(basket);
 
 // List items in cart
+// Function also updates the page each time the basket is changed.
 function listItems(basketArray) {
     if (basketArray.length > 0) {
         basketList.innerHTML = '<h3>Here are the items in your basket</h3>';
@@ -41,6 +42,7 @@ function listItems(basketArray) {
             console.log(item);
     }} 
     else {
+        basketList.innerHTML = '<h3>There is nothing in your basket</h3>'
         console.log('Your basket has nothing in it!');
     }
 }
@@ -72,10 +74,11 @@ function isFull() {
 function removeItem(item, basketArray) {
     if (basketArray.indexOf(item) == -1) {
         console.log('item not found');
+        listItems(basketArray);
         return null;
     } else {
-        let remove = basketArray.indexOf(item);
-        basketArray.splice(remove, 1)
+        //let remove = basketArray.indexOf(item);
+        basketArray.splice(basketArray.indexOf(item), 1)
         listItems(basketArray);
         return true;
     }  
